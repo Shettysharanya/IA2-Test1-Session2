@@ -1,35 +1,31 @@
-#include<stdio.h>
-int input_side()
+#include <stdio.h>
+int input_number()
 {
-  int i;
-  scanf("%d", &i);
-  return i;
+  int num;
+  printf("Enter the number:\n");
+  scanf("%d", &num);
+  return num;
 }
-int check_scalene(int a,int b,int c)
+int is_composite(int n)
 {
-  if(a==b&&a==c)
+  for (int i = 2; i <= n/2; i++)
+  {
+    if (n%i == 0)
+      return 1;
+  }
   return 0;
-  else
-  if(b==c)
-  return 0;
-  else
-  return 1;
 }
-void output(int a,int b,int c, int isscalene)
+void output(int n, int isComposite)
 {
-  if(isscalene==1)
-  printf("the triangle is scalene");
-  else
-  printf("the triangle is not scalene");
+  if (isComposite)
+    printf("%d is a composite number\n", n);
+  else 
+    printf("%d is not a composite number\n", n);
 }
 int main()
 {
-  float a,b,c,isscalene;
-  printf("enter 3 numbers\n");
-  a=input_side();
-  b=input_side();
-  c=input_side();
-  isscalene=check_scalene(a,b,c);
-  output(a,b,c,isscalene);
+  int num = input_number();
+  int res = is_composite(num);
+  output(num, res);
   return 0;
 }
