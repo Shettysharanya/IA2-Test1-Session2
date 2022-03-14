@@ -1,4 +1,17 @@
- gcc -g p1final.c
+ gcc -g p3final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+ 
+ gcc -g p2final.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,33 +29,50 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x852: file p1final.c, line 32.
+Breakpoint 1 at 0x852: file p2final.c, line 32.
+ 
+ gcc -g p1final.c
+ gdb a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from a.out...done.
+(gdb) b main
+Breakpoint 1 at 0x81a: file p1final.c, line 16.
 (gdb) r
 Starting program: /home/runner/IA2-Test1-Session2/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p1final.c:32
-32    a1=input_side();
+Breakpoint 1, main () at p1final.c:16
+16    {
 (gdb) n
-Enter the side of the triangle
+18      input(&base,&height);
+(gdb) n
+Enter the base and height of triangle:
 4
-33    b1=input_side();
+9
+19      find_area(base,height,&area);
 (gdb) n
-Enter the side of the triangle
-7
-34    c1=input_side();
+20      output(base,height,area);
 (gdb) n
-Enter the side of the triangle
-4
-35    count1=check_scalene(a1,b1,c1);
+The area of the triangle with base 4.000000 and height 9.000000 is 18.000000
+21      return area;
 (gdb) n
-36    output(a1,b1,c1,count1);
+22    }
 (gdb) n
-37    return 0;
-(gdb) n
-38  }(gdb) n
-__libc_start_main (main=0x5615d100084a <main>, argc=1, argv=0x7fff2658d808, 
+__libc_start_main (main=0x55bcd2a00812 <main>, argc=1, argv=0x7ffce81c55e8, 
     init=<optimized out>, fini=<optimized out>, rtld_fini=<optimized out>, 
-    stack_end=0x7fff2658d7f8) at ../csu/libc-start.c:344
+    stack_end=0x7ffce81c55d8) at ../csu/libc-start.c:344
 344 ../csu/libc-start.c: No such file or directory.
 (gdb) 

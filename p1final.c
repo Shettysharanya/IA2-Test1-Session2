@@ -1,38 +1,23 @@
 #include<stdio.h>
-int input_side()
+void input(float *base,float *height)
 {
-  int a;
-  printf("Enter the side of the triangle\n");
-  scanf("%d",&a);
-  return a;
+  printf("Enter the base and height of triangle:\n");
+  scanf("%f %f" ,base,height);
 }
-int check_scalene(int a,int b,int c)
+void find_area(float base, float height, float *area)
 {
-  int count=0;
-  if(a!=b&&b!=c&&c!=a)
+  *area=0.5*(base*height);
+}
+  void output(float base,float height,float area)
   {
-    count++;
+    printf("The area of the triangle with base %f and height %f is %f\n",base,height,area);
   }
-  return count;
-}
-void output(int a,int b,int c,int isscalene)
-{
-  if(isscalene==1)
+  int main()
   {
-    printf("The triangle with the sides %d,%d and %d is Scalene",a,b,c);
+    float base,height,area;
+    input(&base,&height);
+    find_area(base,height,&area);
+    output(base,height,area);
+    return area;
   }
-  else
-  {
-    printf("The triangle with the sides %d,%d and %d is not scalene",a,b,c);
-  }  
-}
-int main()
-{
-  int a1,b1,c1,count1;
-  a1=input_side();
-  b1=input_side();
-  c1=input_side();
-  count1=check_scalene(a1,b1,c1);
-  output(a1,b1,c1,count1);
-  return 0;
-}
+
